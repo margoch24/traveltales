@@ -114,12 +114,11 @@ main {
 }
 
 .button-solid {
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding: 13px;
     border-radius: 10px;
     font-family: 'Roboto';
     cursor: pointer;
-    /* background: #048996; */
     color: white;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -174,4 +173,86 @@ main {
 
 .feature .button-solid h4 {
     font-size: 15px;
+}
+
+.topics-section {
+    margin-top: 2rem;
+}
+
+.topics-content {
+    min-height: 200px;
+    display: flex;
+}
+
+.topics-title {
+    margin-top: 2rem;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+    font-family: "Cinzel";
+}
+
+.loading {
+    width: fit-content;
+    margin: auto;
+}
+
+.topic .image {
+    height: 250px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.topic {
+    position: relative;
+    margin-right: 2rem;
+    height: 250px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.topic-text {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.topics {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.topics-container {
+    overflow: hidden;
+}
+.topic-title {
+    color: white;
+    font-family: 'Cinzel';
+    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-size: 25px;
+    margin-top: 1rem;
+}
+
+.topic-description {
+    color: white;
+    font-family: "Roboto";
+    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-size: 15px;
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+
+.topic:hover .topic-text {
+    background: rgba(0, 0, 0, 0.8);
 }
