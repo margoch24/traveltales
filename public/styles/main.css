@@ -1,60 +1,59 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .home {
-    background-image: url('../images/main_bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
-    min-height: 100vh;
+  background-image: url("../images/main_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #header {
-    position: fixed;
-    width: 100%;
-    background: transparent;
-    transition: background 0.3s ease;
-    z-index: 1000;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  transition: background 0.3s ease;
+  z-index: 1000;
 }
 
 #header.scrolled {
-    background: #022d34;
+  background: #022d34;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .navmenu a {
-    text-decoration: none;
-    color: white;
-    font-family: "Chelsea Market";
+  text-decoration: none;
+  color: white;
+  font-family: "Chelsea Market";
 }
 
 .header-content {
-    display: flex;
-    align-items: center;
-    padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
 }
 
 .navmenu {
-    flex: 1;
+  flex: 1;
 }
 
 .desk-navmenu {
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
 }
 
 .desk-navmenu div {
-    margin-right: 4rem;
+  margin-right: 4rem;
 }
 
 .desk-navmenu div:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 h1,
@@ -63,196 +62,244 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+  margin: 0;
 }
 
 .button {
-    border: 1px solid #96d2d0;
-    color: #96d2d0;
-    padding: 10px 30px;
-    border-radius: 10px;
-    font-family: "Roboto";
-    cursor: pointer;
+  border: 1px solid #96d2d0;
+  color: #96d2d0;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-family: "Roboto";
+  cursor: pointer;
 }
 
 .button h4 {
-    font-weight: 400;
-    font-size: 18px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 main {
-    padding: 72px 10px 10px;
+  padding: 72px 2rem 2rem;
 }
 
 .title {
-    margin-top: 2rem;
-    font-size: 70px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: white;
-    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
-    font-family: "Cinzel";
+  margin-top: 2rem;
+  font-size: 70px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: white;
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  font-family: "Cinzel";
 }
 
 .container {
-    max-width: 1600px;
-    margin: auto;
+  max-width: 1600px;
+  margin: auto;
 }
 
 .subtitle {
-    color: white;
-    font-family: "Chelsea Market";
-    letter-spacing: 2px;
-    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
-    margin-top: 2rem;
-    font-size: 15px;
+  color: white;
+  font-family: "Chelsea Market";
+  letter-spacing: 2px;
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  margin-top: 2rem;
+  font-size: 15px;
 }
 
 .intro-section {
-    width: auto;
-    max-width: fit-content;
+  width: auto;
+  max-width: fit-content;
 }
 
 .button-solid {
-    margin-top: 1rem;
-    padding: 13px;
-    border-radius: 10px;
-    font-family: 'Roboto';
-    cursor: pointer;
-    color: white;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,121,105,1) 55%, rgba(0,151,255,1) 100%);
+  margin-top: 1rem;
+  padding: 13px;
+  border-radius: 10px;
+  font-family: "Roboto";
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 105, 1) 55%,
+    rgba(0, 151, 255, 1) 100%
+  );
 }
 
 .button-solid h4 {
-    font-weight: 600;
-    font-size: 20px;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .feature-icon img {
-    width: 40px;
+  width: 40px;
 }
 
 .feature-icon {
-    max-width: fit-content;
-    width: auto;
-    border-radius: 50%;
-    border: 3px solid white;
-    padding: 10px 12px;
+  max-width: fit-content;
+  width: auto;
+  border-radius: 50%;
+  border: 3px solid white;
+  padding: 10px 12px;
 }
 
 .features {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
 }
 
 .feature .feature-title {
-    color: white;
-    font-family: "Roboto";
-    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    font-size: 15px;
-    margin-top: 1rem;
-    letter-spacing: 1px;
+  color: white;
+  font-family: "Roboto";
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-size: 15px;
+  margin-top: 1rem;
+  letter-spacing: 1px;
 }
 
 .feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .feature .button-solid {
-    margin-top: 1rem;
-    background: #c4cacc;
-    color: #022d34;
-    padding: 7px 20px;
+  margin-top: 1rem;
+  background: #c4cacc;
+  color: #022d34;
+  padding: 7px 20px;
 }
 
 .feature .button-solid h4 {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .topics-section {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .topics-content {
-    min-height: 200px;
-    display: flex;
+  min-height: 200px;
+  display: flex;
 }
 
 .topics-title {
-    margin-top: 2rem;
-    font-size: 30px;
-    color: white;
-    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
-    font-family: "Cinzel";
+  margin-top: 2rem;
+  font-size: 30px;
+  color: white;
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  font-family: "Cinzel";
 }
 
 .loading {
-    width: fit-content;
-    margin: auto;
+  width: fit-content;
+  margin: auto;
 }
 
 .topic .image {
-    height: 250px;
-    width: 200px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 15px;
+  height: 250px;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
 }
 
 .topic {
-    position: relative;
-    margin-right: 2rem;
-    height: 250px;
-    width: 200px;
-    cursor: pointer;
-    border-radius: 15px;
+  position: relative;
+  margin-right: 2rem;
+  height: 250px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
 .topic-text {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    border-radius: 15px;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .topics {
-    display: flex;
-    transition: transform 1s ease-in-out;
+  display: flex;
+  transition: transform 1s ease-in-out;
 }
 
 .topics-container {
-    overflow: hidden;
+  overflow: hidden;
 }
 .topic-title {
-    color: white;
-    font-family: 'Cinzel';
-    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    font-size: 25px;
-    margin-top: 1rem;
+  color: white;
+  font-family: "Cinzel";
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-size: 25px;
+  margin-top: 1rem;
 }
 
 .topic-description {
-    color: white;
-    font-family: "Roboto";
-    text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    font-size: 15px;
-    margin-top: 1rem;
-    letter-spacing: 1px;
+  color: white;
+  font-family: "Roboto";
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-size: 15px;
+  margin-top: 1rem;
+  letter-spacing: 1px;
 }
 
 .topic:hover .topic-text {
-    background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.about-title {
+  font-family: "Cinzel";
+  font-size: 30px;
+}
+
+.about-subtitle {
+  font-family: "Chelsea Market";
+  font-size: 15px;
+}
+
+.about-subtitle span {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bar-section {
+  padding: 2rem;
+  color: white;
+}
+
+.bar-section h2 {
+  font-family: "Cinzel";
+  font-size: 35px;
+}
+
+.bar-section h3 {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 25px;
 }
