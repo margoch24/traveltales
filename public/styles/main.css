@@ -445,8 +445,8 @@ a, a:hover {
 .post-h4 {
   font-size: 15px;
   font-family: 'Roboto';
-  margin-left: 10px;
-  margin-top: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 .post i {
@@ -464,8 +464,8 @@ a, a:hover {
 }
 
 .post .right-side h4 {
-  margin-left: 5px;
-  margin-top: 7px;
+  padding-left: 5px;
+  padding-top: 7px;
 }
 
 .post .delete-button {
@@ -487,4 +487,116 @@ a, a:hover {
   text-align: center;
   font-size: 20px;
   font-family: "Roboto";
+}
+
+.bi-heart-fill {
+  color: red;
+}
+
+#viewPostComments .modal-title {
+  font-size: 20px;
+  font-family: "Cinzel";
+}
+
+.modal-subtitle {
+  font-size: 20px;
+  font-family: 'Roboto';
+  letter-spacing: 1px;
+  color: #0d697b;
+}
+
+#viewPostComments .modal-dialog {
+  max-width: 800px !important;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  color: #333;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  border: 1px solid #6082B6;
+  background: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, textarea:focus {
+  border-color: 1px solid #6082B6;
+  outline: none;
+}
+
+.add-comment-section {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.add-comment-section input {
+  margin-top: 0;
+  margin-bottom: 0;
+  flex: 0.9;
+}
+
+.add-comment-section .button-solid {
+  margin-top: 0;
+  flex: 0.1;
+  margin-left: 1rem;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  color: #2f4148;
+  background: #f6f7fc;
+  padding: 10px 5px;
+  margin-bottom: 1rem;
+}
+
+.comments-section {
+  margin-top: 2rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.comment i {
+  font-size: 25px;
+}
+
+.comment h5 {
+  flex: 1;
+  margin-left: 1rem;
+  color: #202122;
+  font-family: 'Chelsea Market';
+  font-size: 15px;
+  margin-top: 5px;
+  max-width: 600px;
+  word-break: break-word;
+}
+
+.comment h6 {
+  color: #c7c8cc;
+  font-size: 15px;
+  font-family: "Roboto";
+}
+
+.comment h4 {
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.no-comments {
+  color: #202122;
+  font-family: 'Chelsea Market';
+  font-size: 15px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.add-comment-section.hidden {
+  display: none !important;
 }

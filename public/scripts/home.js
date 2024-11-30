@@ -77,4 +77,9 @@ const handleTryIt = () => {
   window.location.href = "stories.html"
 }
 
+const handleProfileOpen = () => {
+  window.location.href = "profile.html"
+}
+
 window.handleTryIt = handleTryIt;
+window.handleProfileOpen = handleProfileOpen;

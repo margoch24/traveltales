@@ -1,12 +1,17 @@
 import { getTopics } from "../../helpers/getTopics.js";
-import { getPosts } from "../../helpers/getPosts.js";
+import { getPosts, getStorageStoriesPosts } from "../../helpers/getPosts.js";
+import { handleLikeClick, handlePostClick } from "../../helpers/posts.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { auth } from "./main.js"
+import { getStorageUser } from "../../helpers/getUser.js";
 
 const topicsTitlesDiv = document.querySelector(".topics-titles");
 const postsDiv = document.querySelector(".posts");
 const url = new URL(window.location.href);
 const searchParams = new URLSearchParams(url.search);
 const topicId = searchParams.get("id");
-let posts = [];
+let posts = getStorageStoriesPosts();
+let user = getStorageUser();
 
 const onDocumentReady = () => {
   getTopics((topics) => {
@@ -15,17 +20,52 @@ const onDocumentReady = () => {
     setupBarLinks();
   });
 
-  getPosts((foundPosts) => {
-    posts = foundPosts;
-    finishPostsLoading();
-    displayPosts(foundPosts);
-    if (topicId) {
-      filterPostsByTopic(topicId);
-    }
-  });
+  if (!user) {
+    onAuthStateChanged(auth, (newUser) => {
+      user = newUser
+      setupPosts();
+    })
+    return
+  }
+  setupPosts();
 };
 
 document.addEventListener("DOMContentLoaded", onDocumentReady);
+
+const setupPosts = () => {
+  if (posts && posts.length) {
+    finishPostsLoading();
+    displayPosts(posts);
+    if (topicId) {
+      filterPostsByTopic(topicId);
+    }
+  }
+
+  getPosts((foundPosts) => {
+    if (!posts || !posts.length || areDBPostsUpdated(posts, foundPosts)) {
+      posts = foundPosts;
+      sessionStorage.setItem("storiesPosts", JSON.stringify(foundPosts));
+      finishPostsLoading();
+      displayPosts(foundPosts);
+      if (topicId) {
+        filterPostsByTopic(topicId);
+      }
+    }
+  });
+
+  
+};
+
+const areDBPostsUpdated = (posts, foundPosts) => {
+  if (posts.length !== foundPosts.length) {
+    return true;
+  }
+
+  return posts.some((post) => {
+    const foundPost = foundPosts.find(foundPost => foundPost.id === post.id);
+    return foundPost.likes.length !== post.likes.length || foundPost.comments.length !== post.comments.length;
+  });
+}
 
 const finishLoading = () => {
   document.querySelector(".loading").classList.add("hidden");
@@ -76,6 +116,13 @@ const displayPosts = (foundPosts) => {
   document.querySelector(".no-posts-text").classList.add("hidden");
   postsDiv.innerHTML = "";
   foundPosts.forEach(displayOnePost);
+
+  handlePostClick(user, "storiesPosts", (newPosts) => {
+    posts = newPosts
+  })
+  handleLikeClick(user, "storiesPosts", (newPosts) => {
+    posts = newPosts
+  })
 };
 
 const displayOnePost = ({
@@ -85,11 +132,15 @@ const displayOnePost = ({
   user: postUser,
   id,
   imageUrl,
+  comments,
+  likes
 }) => {
   const date = new Date(createdAt);
   const dateString = `${date.toDateString()}, ${String(
     date.getHours()
   ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
+
+  const isLikedByUser = user ? likes.filter(like => like.userId === user.uid).length > 0 : false;
 
   const newHtml = `
       <div class="post" id="${id}" style="${
@@ -107,9 +158,9 @@ const displayOnePost = ({
                   </div>
                   <div class="flex-container right-side">
                       <i class="bi bi-chat"></i>
-                      <h4 class="post-h4">4</h4>
-                      <i style="margin-left: 15px" class="bi bi-heart"></i>
-                      <h4 class="post-h4">3</h4>
+                      <h4 class="post-h4 comments">${comments.length}</h4>
+                      <i style="margin-left: 15px" class="bi ${isLikedByUser ? "bi-heart-fill" : "bi-heart"} like-content"></i>
+                      <h4 class="post-h4 likes like-content">${likes.length}</h4>
                   </div>
               </div>
           </div>

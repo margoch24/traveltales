@@ -4,16 +4,19 @@ import { auth } from "./main.js";
 import { Post } from "../../models/post.js";
 import { getStorageUser } from "../../helpers/getUser.js";
 import { getTopics } from "../../helpers/getTopics.js";
-import { getPosts, getStorageProfilePosts } from "../../helpers/getPosts.js";
+import { getPosts, getStorageProfilePosts, getStorageStoriesPosts } from "../../helpers/getPosts.js";
+import { handleLikeClick, handlePostClick } from "../../helpers/posts.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 const postModel = new Post();
 
 const profilePostsDiv = document.querySelector(".profile-posts");
 const alert = document.querySelector(".alert");
-const user = getStorageUser();
+let user = getStorageUser();
 const modalElement = document.querySelector("#addNewPost");
 const modal = new bootstrap.Modal(modalElement);
 
+const storiesPosts = getStorageStoriesPosts()
 let posts = getStorageProfilePosts();
 let chosenTopic = null;
 
@@ -47,6 +50,12 @@ const finishLoading = () => {
 
 const displayPosts = () => {
   posts.forEach(displayOnePost);
+  handlePostClick(user, "profilePosts", (newPosts) => {
+    posts = newPosts
+  })
+  handleLikeClick(user, "profilePosts", (newPosts) => {
+    posts = newPosts
+  })
 };
 
 const displayOnePost = ({
@@ -56,11 +65,15 @@ const displayOnePost = ({
   user: postUser,
   id,
   imageUrl,
+  likes,
+  comments
 }) => {
   const date = new Date(createdAt);
   const dateString = `${date.toDateString()}, ${String(
     date.getHours()
   ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
+
+  const isLikedByUser = likes.filter(like => like.userId === user.uid).length > 0;
 
   const newHtml = `
       <div class="post" id="${id}">
@@ -76,9 +89,9 @@ const displayOnePost = ({
                   </div>
                   <div class="flex-container right-side">
                       <i class="bi bi-chat"></i>
-                      <h4 class="post-h4">4</h4>
-                      <i style="margin-left: 15px" class="bi bi-heart"></i>
-                      <h4 class="post-h4">3</h4>
+                      <h4 class="post-h4 comments">${comments.length}</h4>
+                      <i style="margin-left: 15px" class="bi ${isLikedByUser ? "bi-heart-fill" : "bi-heart"} like-content"></i>
+                      <h4 class="post-h4 likes like-content">${likes.length}</h4>
                   </div>
               </div>
           </div>
@@ -141,6 +154,12 @@ const handleDeletePost = async (postId) => {
   const newPosts = posts.filter((post) => post.id !== postId);
   posts = newPosts;
   sessionStorage.setItem("profilePosts", JSON.stringify(newPosts));
+
+  if (storiesPosts && storiesPosts.length > 0) {
+    const newStoriesPosts = storiesPosts.filter((post) => post.id !== postId);
+    sessionStorage.setItem("storiesPosts", JSON.stringify(newStoriesPosts));
+  }
+
   try {
     await postModel.deleteOne(postId);
   } catch (error) {
@@ -171,9 +190,13 @@ const handleNewPost = async () => {
 
     const post = await postModel.create(postParams);
     if (post) {
-      displayOnePost({ ...post, user });
-      posts = [{ ...post, user }, ...posts];
+      const newPost = { ...post, user, likes: [], comments: [] }
+      displayOnePost(newPost);
+      posts = [newPost, ...posts];
       sessionStorage.setItem("profilePosts", JSON.stringify(posts));
+      if (storiesPosts && storiesPosts.length > 0) {
+        sessionStorage.setItem("storiesPosts", JSON.stringify([newPost, ...storiesPosts]));
+      }
       modal.hide();
       return;
     }
@@ -201,6 +224,13 @@ const onDocumentReady = () => {
     setupDropdownTopics();
   });
 
+  if (!user) {
+    onAuthStateChanged(auth, (newUser) => {
+      user = newUser
+      setupPosts();
+    })
+    return
+  }
   setupPosts();
 };
 
