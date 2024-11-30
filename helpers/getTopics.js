@@ -1,5 +1,5 @@
-import { Topic } from "../../models/topic.js";
-import { TOPICS } from "../../helpers/constants.js";
+import { Topic } from "../models/topic.js";
+import { TOPICS } from "../helpers/constants.js";
 
 const topicModel = new Topic();
 

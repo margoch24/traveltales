@@ -1,5 +1,5 @@
-import { Post } from "../../models/post.js";
-import { User } from "../../models/user.js";
+import { Post } from "../models/post.js";
+import { User } from "../models/user.js";
 
 const userModel = new User();
 const postModel = new Post();
