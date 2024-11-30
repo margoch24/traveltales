@@ -25,7 +25,7 @@
       crossorigin="anonymous"
     />
     <link href="public/styles/main.css" rel="stylesheet" />
-    <link href="public/styles/stories.css" rel="stylesheet" />
+    <link href="public/styles/auth.css" rel="stylesheet" />
   </head>
   <body>
     <header id="header" class="">
@@ -47,49 +47,31 @@
           </div>
           <i class="hidden bi bi-list navmenu-toggle"></i>
         </nav>
-        <div>
-          <a href="auth.html" class="hidden home-log-in">
-            <div class="button log-in">
-              <h4>Log in</h4>
-            </div>
-          </a>
-          <a href="profile.html" class="hidden home-profile">
-            <div class="home-profile-section">
-              <i class="bi bi-person-circle"></i>
-              <h4>Margo</h4>
-            </div>
-          </a>
-        </div>
       </div>
     </header>
-    <main class="stories">
+    <main class="auth">
       <div class="container">
-        <div class="side-bar">
-          <div class="bar-link selected main" id="main">
-            <h4>Main</h4>
-            <i class="bi bi-arrow-right-circle"></i>
-          </div>
-          <h3 class="side-bar-section">Topics</h3>
-          <div class="topics-titles hidden">
-
-          </div>
-          <div class="loading">
-            <div class="spinner-border text-dark" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
+        <div style="width: 500px;" class=" alert alert-danger hidden" role="alert">
+            Please enter valid values. (Password at least 6 characters)
         </div>
-        <div class="posts-content">
-          <h3 class="posts-content-title">Social Wall</h3>
-          <div style="margin-top: 2rem;" class="posts-loading loading">
-            <div class="spinner-border text-dark" role="status">
-              <span class="sr-only">Loading...</span>
+        <div class="login">
+            <h3 class="form-title">Log in</h3>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email">
             </div>
-          </div>
-          <h4 style="margin-top: 2rem;" class="no-posts-text hidden">There are no posts available to display.</h4>
-          <div class="posts hidden">
-
-          </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="type-group password_shown">
+                <input type="checkbox" name="password_shown" value="password_shown"><br> 
+                <label for="password_shown" class="">Show password</label>
+            </div>
+            <div class="button-solid auth-log-in" onClick="handleLogin()">
+                <h4>Log in</h4>
+            </div>
+            <h4 class="form-subtitle">Don't have an account? <a href="register.html">Sign up</a></h4>
         </div>
       </div>
     </main>
@@ -124,9 +106,6 @@
     ></script>
     <script src="helpers/env.js" type="module"></script>
     <script src="public/scripts/main.js" type="module"></script>
-    <script src="helpers/getUser.js" type="module"></script>
-    <script src="models/index.js" type="module"></script>
-    <script src="models/user.js" type="module"></script>
-    <script src="public/scripts/stories.js" type="module"></script>
+    <script src="public/scripts/auth.js" type="module"></script>
   </body>
 </html>

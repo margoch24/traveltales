@@ -16,6 +16,7 @@ body {
   background: transparent;
   transition: background 0.3s ease;
   z-index: 1000;
+  min-height: 75px;
 }
 
 #header.scrolled {
@@ -302,4 +303,188 @@ main {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 25px;
+}
+
+.icons-section {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  height: 10px;
+  background: linear-gradient(45deg, rgba(5, 148, 234, 1) 17%, rgba(32, 61, 104, 1) 51%, rgba(5, 148, 234, 1) 80%);
+}
+
+.moto-section {
+  background-image: url('../images/moto_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.moto-section h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: white;
+  text-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+  font-family: "Cinzel";
+  text-align: center;
+  z-index: 3;
+  max-width: 900px;
+  margin: auto;
+  font-weight: 700;
+}
+
+.moto-section .bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  min-height: 200px;
+  left: 0;
+  backdrop-filter: blur(4px);
+}
+
+p {
+  margin: 0;
+}
+
+.icons-section a {
+ font-size: 25px;
+ margin-right: 1rem;
+ color: #14333c;
+}
+
+.icons-section a:last-child {
+  margin-right: 0;
+}
+
+.icons-section a:hover {
+  color: rgba(5, 148, 234, 1);
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.home-profile-section {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home-profile-section i {
+  color: white;
+  font-size: 30px;
+}
+
+.home-profile-section h4 {
+  font-family: "Roboto";
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 5px 10px 0 10px;
+}
+
+.post img {
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.post {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.post .date {
+  color: #d9dadde7;
+  font-size: 15px;
+  font-family: "Roboto";
+}
+
+.post-description {
+  font-size: 16px;
+  font-family: 'Chelsea Market';
+  color: #b9babe;
+  font-weight: 300;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.post-text {
+  padding: 1rem;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.post-title {
+  font-size: 30px;
+  font-family: "Cinzel";
+  margin: 5px 0 1.5rem;
+}
+
+.post-h4 {
+  font-size: 15px;
+  font-family: 'Roboto';
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.post i {
+  font-size: 25px;
+}
+
+.post .bottom-section {
+  margin-top: 10px;
+  border-top: 1px solid #d9dadde7;
+  color: #022d34;
+}
+
+.post .right-side i {
+  font-size: 20px;
+}
+
+.post .right-side h4 {
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
+.post .delete-button {
+  background-color: #fee2e2;
+  color: #ef4a4a;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.post .delete-button i {
+  font-size: 15px;
+}
+
+.no-posts-text {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Roboto";
 }

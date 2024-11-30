@@ -1,0 +1,87 @@
+#header {
+    background: #022d34 !important;
+}
+
+.stories .container {
+    display: flex;
+}
+
+.side-bar {
+    flex: 0.3;
+    min-height: 100vh;
+    padding: 2rem 0px;
+}
+
+.posts-content {
+    flex: 1;
+    background: #f6f7fc;
+    padding: 3rem 1rem 1rem;
+}
+
+main {
+    padding: 60px 2rem 2rem !important;
+}
+
+.bar-link.selected, .bar-link:hover {
+    background: #f1eeff;
+}
+
+.bar-link.selected i, .bar-link:hover i {
+    display: block;
+    font-size: 20px;
+}
+
+.bar-link i {
+    display: none;
+}
+
+.bar-link {
+    cursor: pointer;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 63px;
+    border-top: 1px solid #f1eeff;
+}
+
+.bar-link.main {
+    border-top: 0;
+    margin-bottom: 1rem;
+}
+
+.side-bar-section {
+    font-family: "Chelsea Market";
+    letter-spacing: 2px;
+    color: #022d34;
+    font-size: 20px;
+    margin: 2rem 1rem 1rem;
+}
+
+.bar-link h4 {
+    font-family: "Roboto";
+    letter-spacing: 2px;
+    color: rgb(2, 45, 52);
+    font-size: 15px;
+    margin: 0 1rem;
+    max-width: 250px;
+}
+
+.loading {
+    margin-top: 2rem;
+}
+
+.posts-content-title {
+  font-size: 25px;
+  font-family: "Roboto";
+  color: rgb(2, 45, 52);
+  text-transform: uppercase;
+}
+
+.posts {
+    margin-top: 3rem;
+}
+
+.post {
+    margin-bottom: 2rem !important;
+}

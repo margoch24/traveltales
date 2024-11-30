@@ -36,21 +36,28 @@
 
         <nav id="navmenu" class="navmenu">
           <div class="desk-navmenu">
-            <div><a href="news.html" class="active">News</a></div>
+            <div><a href="index.html" class="active">Home</a></div>
             <div><a href="tips.html">Tips</a></div>
             <div><a href="stories.html">Stories</a></div>
           </div>
           <div class="mobile-navmenu hidden">
-            <div><a href="news.html" class="active">News</a></div>
             <div><a href="tips.html">Tips</a></div>
             <div><a href="stories.html">Stories</a></div>
           </div>
           <i class="hidden bi bi-list navmenu-toggle"></i>
         </nav>
         <div>
-          <div class="button">
-            <h4>Log in</h4>
-          </div>
+          <a href="auth.html" class="hidden home-log-in">
+            <div class="button log-in">
+              <h4>Log in</h4>
+            </div>
+          </a>
+          <a href="profile.html" class="hidden home-profile">
+            <div class="home-profile-section">
+              <i class="bi bi-person-circle"></i>
+              <h4>Margo</h4>
+            </div>
+          </a>
         </div>
       </div>
     </header>
@@ -67,7 +74,7 @@
             travel dreams a reality today!
           </h4>
 
-          <div class="button-solid">
+          <div class="button-solid" onClick="handleTryIt()">
             <h4>Explore all stories</h4>
           </div>
 
@@ -80,7 +87,7 @@
                 Community <br />
                 Discussions
               </h4>
-              <div class="button-solid">
+              <div class="button-solid" onClick="handleTryIt()">
                 <h4>Try it</h4>
               </div>
             </div>
@@ -92,7 +99,7 @@
                 Destination <br />
                 Insights
               </h4>
-              <div class="button-solid">
+              <div class="button-solid" onClick="handleTryIt()">
                 <h4>Try it</h4>
               </div>
             </div>
@@ -104,7 +111,7 @@
                 Personalized <br />
                 Profiles
               </h4>
-              <div class="button-solid">
+              <div class="button-solid" onClick="handleTryIt()">
                 <h4>Try it</h4>
               </div>
             </div>
@@ -116,7 +123,7 @@
                 Search & <br />
                 Discover
               </h4>
-              <div class="button-solid">
+              <div class="button-solid" onClick="handleTryIt()">
                 <h4>Try it</h4>
               </div>
             </div>
@@ -176,6 +183,24 @@
       </div>
     </div>
 
+    <div class="moto-section">
+      <h3>TravelTales: Share Adventures, Inspire Journeys, Connect Globally</h3>
+      <div class="bg"></div>
+    </div>
+    <div class="line"></div>
+    <footer>
+      <div class="icons-section">
+        <div>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 10px;" class="about-subtitle">&copy; 2024 Margo. All rights reserved.</p>
+      </div>
+    </footer>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -193,8 +218,7 @@
     ></script>
     <script src="helpers/env.js" type="module"></script>
     <script src="public/scripts/main.js" type="module"></script>
-    <script src="models/index.js" type="module"></script>
-    <script src="models/user.js" type="module"></script>
+    <script src="helpers/getUser.js" type="module"></script>
     <script src="public/scripts/home.js" type="module"></script>
   </body>
 </html>

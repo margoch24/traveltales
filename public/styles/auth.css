@@ -1,0 +1,77 @@
+.auth {
+    min-height: 100vh;
+    background: linear-gradient(45deg, rgba(5,148,234,1) 6%, rgba(35,179,163,1) 34%, rgba(32,61,104,1) 80%);
+    display: flex;
+}
+
+.auth.register-auth {
+    background: linear-gradient(45deg, rgba(234,5,198,1) 17%, rgba(32,61,104,1) 48%, rgba(131,5,234,1) 80%);
+}
+  
+.login, .register {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 500px;
+}
+
+.auth .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    flex: 1;
+}
+
+label {
+    margin-bottom: 1px;
+    font-family: "Chelsea Market";
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    color: #333;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    border: 1px solid #6082B6;
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, textarea:focus {
+    border-color: 1px solid #6082B6;
+    outline: none;
+}
+
+.form-title {
+    font-size: 30px;
+    font-family: "Roboto";
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.password_shown input {
+    max-width: 30px;
+}
+
+.password_shown {
+    display: flex;
+    margin-top: -20px;
+}
+
+.form-subtitle {
+    margin-top: 2rem;
+    font-family: "Chelsea Market";
+    font-size: 15px;
+}

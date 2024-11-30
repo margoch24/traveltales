@@ -1,30 +1,15 @@
-import { Topic } from "../../models/topic.js";
-import { TOPICS } from "../../helpers/constants.js";
+import { getTopics } from "../../helpers/getTopics.js";
 
-const topicModel = new Topic();
 const topicsDiv = document.querySelector(".topics");
-
 let direction = 1;
 let scrollInterval;
 
-const getTopics = async () => {
-  try {
-    let topics = await topicModel.findMany();
-    if (!topics.length) {
-      topics = await Promise.all(
-        TOPICS.map((topic) => topicModel.create(topic))
-      );
-    }
+const onDocumentReady = () => {
+  getTopics((topics) => {
     displayTopics(topics);
     finishLoading();
     startScrolling();
-  } catch (error) {
-    console.error("Error ensuring topics:", error);
-  }
-};
-
-const onDocumentReady = () => {
-  getTopics();
+  });
 };
 
 document.addEventListener("DOMContentLoaded", onDocumentReady);
@@ -36,9 +21,9 @@ const finishLoading = () => {
 
 const displayTopics = (topics) => {
   topicsDiv.innerHTML = "";
-  topics.forEach(({ title, imageUrl, description }) => {
+  topics.forEach(({ title, imageUrl, id }) => {
     const newHtml = `
-            <div class="topic">
+            <div class="topic" id="${id}">
                 <div class="image" style="background-image: url('${imageUrl}');"></div>
                 <div class="topic-text">
                     <h2 class="topic-title">${title}</h2>
@@ -48,7 +33,17 @@ const displayTopics = (topics) => {
 
     topicsDiv.insertAdjacentHTML("beforeend", newHtml);
   });
+  setupTopics()
 };
+
+const setupTopics = () => {
+  const topicsItems = document.querySelectorAll('.topic');
+  topicsItems.forEach(topic => {
+      topic.addEventListener('click', () => {
+        window.location.href = `stories.html?id=${topic.id}`
+      })
+  })
+}
 
 let currentPosition = 0;
 const scrollTopics = () => {
@@ -77,3 +72,9 @@ const stopScrolling = () => {
 
 topicsDiv.addEventListener("mouseenter", stopScrolling);
 topicsDiv.addEventListener("mouseleave", startScrolling);
+
+const handleTryIt = () => {
+  window.location.href = "stories.html"
+}
+
+window.handleTryIt = handleTryIt;

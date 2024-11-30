@@ -25,7 +25,7 @@
       crossorigin="anonymous"
     />
     <link href="public/styles/main.css" rel="stylesheet" />
-    <link href="public/styles/stories.css" rel="stylesheet" />
+    <link href="public/styles/profile.css" rel="stylesheet" />
   </head>
   <body>
     <header id="header" class="">
@@ -47,49 +47,31 @@
           </div>
           <i class="hidden bi bi-list navmenu-toggle"></i>
         </nav>
-        <div>
-          <a href="auth.html" class="hidden home-log-in">
-            <div class="button log-in">
-              <h4>Log in</h4>
-            </div>
-          </a>
-          <a href="profile.html" class="hidden home-profile">
-            <div class="home-profile-section">
-              <i class="bi bi-person-circle"></i>
-              <h4>Margo</h4>
-            </div>
-          </a>
-        </div>
       </div>
     </header>
-    <main class="stories">
+    <main class="profile">
       <div class="container">
-        <div class="side-bar">
-          <div class="bar-link selected main" id="main">
-            <h4>Main</h4>
-            <i class="bi bi-arrow-right-circle"></i>
-          </div>
-          <h3 class="side-bar-section">Topics</h3>
-          <div class="topics-titles hidden">
-
-          </div>
-          <div class="loading">
-            <div class="spinner-border text-dark" role="status">
-              <span class="sr-only">Loading...</span>
+        <div class="profile-section">
+            <div class="profile-content">
+                <i class="bi bi-person-circle"></i>
+                <h3 class="username"> Margo</h3>
             </div>
+            <div class="button-solid create-post" onClick="handleCreatePost()">
+              <h4>Add new post</h4>
+            </div>
+            <div class="button-solid logout" onClick="handleLogout()">
+                <h4>Log out</h4>
+            </div>
+        </div>
+        <h3 class="title-profile-posts">Your posts</h3>
+        <div class="loading">
+          <div class="spinner-border text-dark" role="status">
+            <span class="sr-only">Loading...</span>
           </div>
         </div>
-        <div class="posts-content">
-          <h3 class="posts-content-title">Social Wall</h3>
-          <div style="margin-top: 2rem;" class="posts-loading loading">
-            <div class="spinner-border text-dark" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-          <h4 style="margin-top: 2rem;" class="no-posts-text hidden">There are no posts available to display.</h4>
-          <div class="posts hidden">
-
-          </div>
+        <h4 class="no-posts-text hidden">You don't have any posts yet</h4>
+        <div class="profile-posts hidden">
+          
         </div>
       </div>
     </main>
@@ -106,6 +88,51 @@
         <p style="margin-top: 10px;" class="about-subtitle">&copy; 2024 Margo. All rights reserved.</p>
       </div>
     </footer>
+
+    <div class="modal fade" id="addNewPost" tabindex="-1" role="dialog" aria-labelledby="addNewPostLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add new post</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div  class=" alert alert-danger hidden" role="alert">
+              Please enter valid values. (Password at least 6 characters)
+            </div>
+            <div class="form-group">
+                <label for="title">Title <span>*</span></label>
+                <input type="text" id="title" name="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+              <label for="description">Description <span>*</span></label>
+              <textarea rows="5" id="description" name="description" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Choose topic <span>*</span></label>
+              <div class="dropdown" style="margin-bottom: 1.5rem;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Choose topic
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="dropdown-item" id="any">Any</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="filename">Image online url</label>
+              <input type="text" id="filename" name="filename" placeholder="Image url">
+            </div>
+      
+            <div class="button-solid" onClick="handleNewPost()">
+                <h4>Create</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -125,8 +152,6 @@
     <script src="helpers/env.js" type="module"></script>
     <script src="public/scripts/main.js" type="module"></script>
     <script src="helpers/getUser.js" type="module"></script>
-    <script src="models/index.js" type="module"></script>
-    <script src="models/user.js" type="module"></script>
-    <script src="public/scripts/stories.js" type="module"></script>
+    <script src="public/scripts/profile.js" type="module"></script>
   </body>
 </html>
