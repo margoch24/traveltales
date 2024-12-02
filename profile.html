@@ -38,11 +38,11 @@
         <nav id="navmenu" class="navmenu">
           <div class="desk-navmenu">
             <div><a href="index.html" class="active">Home</a></div>
-            <div><a href="tips.html">Tips</a></div>
+            <!-- <div><a href="tips.html">Tips</a></div> -->
             <div><a href="stories.html">Stories</a></div>
           </div>
           <div class="mobile-navmenu hidden">
-            <div><a href="tips.html">Tips</a></div>
+            <!-- <div><a href="tips.html">Tips</a></div> -->
             <div><a href="stories.html">Stories</a></div>
           </div>
           <i class="hidden bi bi-list navmenu-toggle"></i>
@@ -52,16 +52,16 @@
     <main class="profile">
       <div class="container">
         <div class="profile-section">
-            <div class="profile-content">
-                <i class="bi bi-person-circle"></i>
-                <h3 class="username"> Margo</h3>
-            </div>
-            <div class="button-solid create-post" onClick="handleCreatePost()">
-              <h4>Add new post</h4>
-            </div>
-            <div class="button-solid logout" onClick="handleLogout()">
-                <h4>Log out</h4>
-            </div>
+          <div class="profile-content">
+            <i class="bi bi-person-circle"></i>
+            <h3 class="username">Margo</h3>
+          </div>
+          <div class="button-solid create-post" onClick="handleCreatePost()">
+            <h4>Add new post</h4>
+          </div>
+          <div class="button-solid logout" onClick="handleLogout()">
+            <h4>Log out</h4>
+          </div>
         </div>
         <h3 class="title-profile-posts">Your posts</h3>
         <div class="loading">
@@ -70,9 +70,7 @@
           </div>
         </div>
         <h4 class="no-posts-text hidden">You don't have any posts yet</h4>
-        <div class="profile-posts hidden">
-          
-        </div>
+        <div class="profile-posts hidden"></div>
       </div>
     </main>
 
@@ -85,35 +83,61 @@
           <a href="#"><i class="bi bi-facebook"></i></a>
           <a href="#"><i class="bi bi-whatsapp"></i></a>
         </div>
-        <p style="margin-top: 10px;" class="about-subtitle">&copy; 2024 Margo. All rights reserved.</p>
+        <p style="margin-top: 10px" class="about-subtitle">
+          &copy; 2024 Margo. All rights reserved.
+        </p>
       </div>
     </footer>
 
-    <div class="modal fade" id="addNewPost" tabindex="-1" role="dialog" aria-labelledby="addNewPostLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="addNewPost"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addNewPostLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">Add new post</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div  class=" alert alert-danger hidden" role="alert">
+            <div class="alert alert-danger hidden" role="alert">
               Please enter valid values. (Password at least 6 characters)
             </div>
             <div class="form-group">
-                <label for="title">Title <span>*</span></label>
-                <input type="text" id="title" name="title" placeholder="Title">
+              <label for="title">Title <span>*</span></label>
+              <input type="text" id="title" name="title" placeholder="Title" />
             </div>
             <div class="form-group">
               <label for="description">Description <span>*</span></label>
-              <textarea rows="5" id="description" name="description" placeholder="Description"></textarea>
+              <textarea
+                rows="5"
+                id="description"
+                name="description"
+                placeholder="Description"
+              ></textarea>
             </div>
             <div class="form-group">
               <label>Choose topic <span>*</span></label>
-              <div class="dropdown" style="margin-bottom: 1.5rem;">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="dropdown" style="margin-bottom: 1.5rem">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   Choose topic
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -123,37 +147,60 @@
             </div>
             <div class="form-group">
               <label for="filename">Image online url</label>
-              <input type="text" id="filename" name="filename" placeholder="Image url">
+              <input
+                type="text"
+                id="filename"
+                name="filename"
+                placeholder="Image url"
+              />
             </div>
-      
+
             <div class="button-solid" onClick="handleNewPost()">
-                <h4>Create</h4>
+              <h4>Create</h4>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="modal fade" id="viewPostComments" tabindex="-1" role="dialog" aria-labelledby="viewPostCommentsLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="viewPostComments"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="viewPostCommentsLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Top 10 Travel Photography Destinations Around the World</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Top 10 Travel Photography Destinations Around the World
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <h3 class="modal-subtitle">Comments</h3>
             <div class="add-comment-section hidden">
-              <input type="text" id="comment-input" name="comment-input" placeholder="Add comment...">
+              <input
+                type="text"
+                id="comment-input"
+                name="comment-input"
+                placeholder="Add comment..."
+              />
               <div class="button-solid add-new-comment">
                 <h4>Add</h4>
               </div>
             </div>
             <h5 class="no-comments hidden">No comments yet</h5>
-            <div class="comments-section hidden">
-            </div>
+            <div class="comments-section hidden"></div>
           </div>
         </div>
       </div>

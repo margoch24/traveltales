@@ -38,11 +38,11 @@
         <nav id="navmenu" class="navmenu">
           <div class="desk-navmenu">
             <div><a href="index.html" class="active">Home</a></div>
-            <div><a href="tips.html">Tips</a></div>
+            <!-- <div><a href="tips.html">Tips</a></div> -->
             <div><a href="stories.html">Stories</a></div>
           </div>
           <div class="mobile-navmenu hidden">
-            <div><a href="tips.html">Tips</a></div>
+            <!-- <div><a href="tips.html">Tips</a></div> -->
             <div><a href="stories.html">Stories</a></div>
           </div>
           <i class="hidden bi bi-list navmenu-toggle"></i>
@@ -51,31 +51,51 @@
     </header>
     <main class="auth register-auth">
       <div class="container">
-        <div style="width: 500px;" class="alert alert-danger hidden" role="alert">
-            Please enter valid values. (Password at least 6 characters)
+        <div
+          style="width: 500px"
+          class="alert alert-danger hidden"
+          role="alert"
+        >
+          Please enter valid values. (Password at least 6 characters)
         </div>
         <div class="register">
-            <h3 class="form-title">Sign up</h3>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" id="username" name="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password">
-            </div>
-            <div class="type-group password_shown">
-                <input type="checkbox" name="password_shown" value="password_shown"><br> 
-                <label for="password_shown" class="">Show password</label>
-            </div>
-            <div class="button-solid" onClick="handleRegister()">
-                <h4>Sign up</h4>
-            </div>
-            <h4 class="form-subtitle">Already have an account? <a href="auth.html">Log in</a></h4>
+          <h3 class="form-title">Sign up</h3>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="type-group password_shown">
+            <input
+              type="checkbox"
+              name="password_shown"
+              value="password_shown"
+            /><br />
+            <label for="password_shown" class="">Show password</label>
+          </div>
+          <div class="button-solid" onClick="handleRegister()">
+            <h4>Sign up</h4>
+          </div>
+          <h4 class="form-subtitle">
+            Already have an account? <a href="auth.html">Log in</a>
+          </h4>
         </div>
       </div>
     </main>
@@ -89,7 +109,9 @@
           <a href="#"><i class="bi bi-facebook"></i></a>
           <a href="#"><i class="bi bi-whatsapp"></i></a>
         </div>
-        <p style="margin-top: 10px;" class="about-subtitle">&copy; 2024 Margo. All rights reserved.</p>
+        <p style="margin-top: 10px" class="about-subtitle">
+          &copy; 2024 Margo. All rights reserved.
+        </p>
       </div>
     </footer>
 
